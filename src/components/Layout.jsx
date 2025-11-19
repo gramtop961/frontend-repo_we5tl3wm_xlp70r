@@ -1,14 +1,11 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './Header'
 
-function App() {
+export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-[#0b0b12] text-[color:#e6e0d6]">
       <Header />
-      <Outlet />
+      <div>{children}</div>
     </div>
   )
 }
-
-export default App

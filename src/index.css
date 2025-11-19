@@ -4,43 +4,24 @@
 
 @layer base {
   :root {
+    --ink: #0b0b12;
+    --ink-2: #1a0f19;
+    --ink-3: #2a1625;
+    --parchment: #e6e0d6;
+    --tan: #c19a6b;
+    --burgundy: #8b3a62;
+
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --font-serif: 'Spectral', Georgia, 'Times New Roman', serif;
   }
 
-  html {
-    font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  body {
-    @apply antialiased;
-  }
+  html { font-family: var(--font-sans); font-feature-settings: "rlig" 1, "calt" 1; }
+  body { @apply antialiased; background: var(--ink); color: var(--parchment); }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
-@layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
+/* Reader typography */
+.prose p { font-family: var(--font-serif); }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
-}
+/* Utility keyframes for this project */
+@keyframes floatY { 0%,100%{ transform: translateY(-2%);} 50%{ transform: translateY(2%);} }
+@keyframes pulseGlow { 0%,100%{ filter: drop-shadow(0 0 10px rgba(193,154,107,.25)); } 50%{ filter: drop-shadow(0 0 22px rgba(139,58,98,.45)); } }
